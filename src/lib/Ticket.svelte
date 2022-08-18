@@ -9,6 +9,7 @@
 
 <style>
     .ticket {
+        margin: 5px;
         padding: 10px 8px;
         border: 1px #000000 solid;
         border-radius: 3px;

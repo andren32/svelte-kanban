@@ -1,26 +1,21 @@
 <script lang="ts">
-    import Ticket from "./lib/Ticket.svelte";
-    import { store, TicketStatus } from "./store";
+    import Lane from "./lib/Lane.svelte";
+    import { TicketStatus } from "./store";
 
-    $: inProgressTickets = $store.tickets.filter(
-        (ticket) => ticket.status === TicketStatus.InProgress
-    );
-    $: doneTickets = $store.tickets.filter(
-        (ticket) => ticket.status === TicketStatus.Done
-    );
 </script>
 
 <main>
-    <div>
-      <h2>In progress</h2>
-        {#each inProgressTickets as ticket}
-            <Ticket {ticket} />
-        {/each}
-    </div>
-    <div>
-      <h2>Done</h2>
-        {#each doneTickets as ticket}
-            <Ticket {ticket} />
-        {/each}
+    <div class="lanes">
+    <Lane ticketStatus={TicketStatus.Backlog}/>
+    <Lane ticketStatus={TicketStatus.InProgress}/>
+    <Lane ticketStatus={TicketStatus.Review}/>
+    <Lane ticketStatus={TicketStatus.Testing}/>
+    <Lane ticketStatus={TicketStatus.Done}/>
     </div>
 </main>
+
+<style>
+    .lanes {
+        display: flex;
+    }
+</style>
