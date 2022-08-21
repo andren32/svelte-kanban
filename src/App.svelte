@@ -1,21 +1,10 @@
 <script lang="ts">
-    import Lane from "./lib/Lane.svelte";
-    import { TicketStatus } from "./store";
-
+    import Lanes from "./lib/components/Lanes.svelte";
 </script>
 
 <main>
-    <div class="lanes">
-    <Lane ticketStatus={TicketStatus.Backlog}/>
-    <Lane ticketStatus={TicketStatus.InProgress}/>
-    <Lane ticketStatus={TicketStatus.Review}/>
-    <Lane ticketStatus={TicketStatus.Testing}/>
-    <Lane ticketStatus={TicketStatus.Done}/>
-    </div>
+    <Lanes />
 </main>
 
 <style>
-    .lanes {
-        display: flex;
-    }
 </style>

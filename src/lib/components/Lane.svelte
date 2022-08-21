@@ -7,15 +7,27 @@
     $: tickets = $store.tickets.filter(
         (ticket) => ticket.status === ticketStatus
     );
+
+    let isDragOver = false;
+
+    function onDragOver() {
+        isDragOver = true;
+    }
+    function onDragLeave() {
+        isDragOver = false;
+    }
 </script>
 
-<div class="lane">
+<div
+    class="lane"
+    class:isDragOver
+    on:dragover={onDragOver}
+    on:dragleave={onDragLeave}
+>
     <h2>{ticketStatus}</h2>
-    <div>
-
-    </div>
-    {#each tickets as ticket}
-        <Ticket {ticket} />
+    <div />
+    {#each tickets as ticket (ticket.id)}
+        <Ticket {ticket} on:startDragging on:stopDragging />
     {/each}
 </div>
 
@@ -28,5 +40,8 @@
         margin: 3px;
         border-radius: 3px;
         border: 1px #000000 solid;
+    }
+    .isDragOver {
+        border-color: red;
     }
 </style>
