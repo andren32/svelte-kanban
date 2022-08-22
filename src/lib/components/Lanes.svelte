@@ -1,15 +1,21 @@
 <script lang="ts">
     import Lane from "./Lane.svelte";
-    import { TicketStatus } from "../store";
+    import { store, TicketStatus } from "../store";
 
-    function onMouseMove(event: MouseEvent) {
-        // console.log(`x: ${event.clientX} y: ${event.clientY}`);
+    let draggedId: string;
+
+    function onStartDragging(event: any) {
+        draggedId = event.detail.id;
     }
-    function onStartDragging(event) {
-        console.log(`start drag ${event.detail.id}`);
+    function onStopDragging() {
+        draggedId = undefined;
     }
-    function onStopDragging(event) {
-        console.log(`stop drag ${event.detail.id}`);
+    function createOnDrop(ticketStatus: TicketStatus) {
+        return () => {
+            if (draggedId !== undefined) {
+                store.setTicketStatus(draggedId, ticketStatus);
+            }
+        };
     }
 
     const lanes = [
@@ -21,11 +27,12 @@
     ];
 </script>
 
-<div class="lanes" on:mousemove={onMouseMove}>
+<div class="lanes">
     {#each lanes as lane (lane)}
         <Lane
             on:startDragging={onStartDragging}
             on:stopDragging={onStopDragging}
+            on:drop={createOnDrop(lane)}
             ticketStatus={lane}
         />
     {/each}

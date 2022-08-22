@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte";
+
     import { store, TicketStatus } from "../store";
     import Ticket from "./Ticket.svelte";
 
@@ -8,6 +10,7 @@
         (ticket) => ticket.status === ticketStatus
     );
 
+    const dispatch = createEventDispatcher();
     let isDragOver = false;
 
     function onDragOver() {
@@ -16,6 +19,10 @@
     function onDragLeave() {
         isDragOver = false;
     }
+    function onDrop() {
+        isDragOver = false;
+        dispatch("drop")
+    }
 </script>
 
 <div
@@ -23,6 +30,8 @@
     class:isDragOver
     on:dragover={onDragOver}
     on:dragleave={onDragLeave}
+    on:dragover={(event) => event.preventDefault()}
+    on:drop={onDrop}
 >
     <h2>{ticketStatus}</h2>
     <div />

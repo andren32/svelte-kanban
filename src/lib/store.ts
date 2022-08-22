@@ -24,88 +24,42 @@ const initialState: Store = {
     tickets: [
         {
             id: uuid(),
-            status: TicketStatus.Backlog,
+            status: TicketStatus.Done,
             summary: "Learn basic svelte",
             description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
+                "In order to create a kanban app in Svelte, I first need to learn the basics",
+        },
+        {
+            id: uuid(),
+            status: TicketStatus.Testing,
+            summary: "Create kanban app",
+            description:
+                "After learning the basics I'll create a small kanban app",
         },
         {
             id: uuid(),
             status: TicketStatus.Review,
-            summary: "Learn basic svelte",
-            description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
+            summary: "Create some tickets",
+            description: "Create some tickets to test kanban app",
+        },
+        {
+            id: uuid(),
+            status: TicketStatus.InProgress,
+            summary: "and some more tickets",
+            description: "Create even more tickets",
+        },
+        {
+            id: uuid(),
+            status: TicketStatus.InProgress,
+            summary: "implement drag and drop",
+            description: "let user drag and drop the tickets",
         },
         {
             id: uuid(),
             status: TicketStatus.Backlog,
-            summary: "Create kanban app",
-            description: "Create the kanban app",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.Testing,
-            summary: "Learn basic svelte",
+            summary: "style the components",
             description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.Testing,
-            summary: "Create kanban app",
-            description: "Create the kanban app",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.Done,
-            summary: "Learn basic svelte",
-            description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.InProgress,
-            summary: "Create kanban app",
-            description: "Create the kanban app",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.Done,
-            summary: "Learn basic svelte",
-            description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.InProgress,
-            summary: "Create kanban app",
-            description: "Create the kanban app",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.Done,
-            summary: "Learn basic svelte",
-            description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.InProgress,
-            summary: "Create kanban app",
-            description: "Create the kanban app",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.Done,
-            summary: "Learn basic svelte",
-            description:
-                "In order to create a kanban app in Svelte, we first need to learn the basics",
-        },
-        {
-            id: uuid(),
-            status: TicketStatus.InProgress,
-            summary: "Create kanban app",
-            description: "Create the kanban app",
+                "style the components so they look better and not as plain",
         },
     ],
 };

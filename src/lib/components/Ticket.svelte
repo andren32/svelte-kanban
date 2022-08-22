@@ -12,8 +12,7 @@ import { createEventDispatcher } from "svelte";
         isBeingDragged = true;
         dispatch("startDragging", {id: ticket.id});
     }
-    function onDragEnd(event) {
-        event.preventDefault();
+    function onDragEnd(event: DragEvent) {
         isBeingDragged = false;
         dispatch("stopDragging", {id: ticket.id});
     }
