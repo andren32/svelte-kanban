@@ -46,7 +46,7 @@
         flex-direction: column;
         width: 200px;
         padding: 15px;
-        margin: 3px;
+        margin-right: 5px;
         border-radius: 3px;
         border: 1px #000000 solid;
     }

@@ -1,10 +1,7 @@
 <script lang="ts">
-    import Lanes from "./lib/components/Lanes.svelte";
+    import Kanban from "./lib/components/Kanban.svelte";
 </script>
 
 <main>
-    <Lanes />
+    <Kanban />
 </main>
-
-<style>
-</style>

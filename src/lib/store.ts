@@ -76,6 +76,19 @@ function createStore() {
                     ticket.id === id ? { ...ticket, status } : ticket
                 ),
             })),
+        createTicket: (summary: string, description: string) =>
+            update((s) => ({
+                ...s,
+                tickets: [
+                    ...s.tickets,
+                    {
+                        id: uuid(),
+                        status: TicketStatus.Backlog,
+                        summary,
+                        description,
+                    },
+                ],
+            })),
     };
 }
 
